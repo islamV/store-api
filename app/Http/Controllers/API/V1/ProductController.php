@@ -60,7 +60,7 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function getProduct(string $id)
+    public function show(string $id)
     {
         $product = Product::findOrFail($id);
 

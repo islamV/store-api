@@ -88,8 +88,13 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Order $order)
+    public function destroy(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'order' => 'required|integer',
+        ]);
+        Order::destroy($validated['id']);
+
+        return response()->json(['success' => 'Products deleted successfully.']);
     }
 }
